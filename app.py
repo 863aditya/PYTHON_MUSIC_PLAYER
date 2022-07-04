@@ -132,7 +132,7 @@ while True:
         print("you pressed 3 now enter the name of the playlist")
         name_of_playlist=input("enter the name of the playlist: ")
         create_playlist(name_of_playlist)
-        print("playlist created successfully if you want to add songs press 4")
+        print("playlist created successfully if you want to add songs press 5")
         a2=input("enter 5 if want to add new songs else anything : ").strip()
         if a2=="5":
             print("keep entering the name of the songs and if you want to exit press -1")
