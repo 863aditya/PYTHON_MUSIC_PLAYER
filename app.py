@@ -73,9 +73,12 @@ def play_playlist(name):
     c1=f"""select * from {name};"""
     a1=cur.execute(c1)
     l1=[]
-    for x in a1.fetchall():
+    a2=a1.fetchall()
+    for x in a2:
+        print(x)
         l1.append(x[1])
     random.shuffle(l1)
+    print(l1)
     for x in l1:
         print(f"now playing {x}")
         play_mp3(x)
@@ -100,8 +103,8 @@ def get_actual_name(name):
     if name in d1.keys():
         return d1[name]
     else:
-        download(name)
-        get_actual_name(name)
+        download(name,search_video(name))
+        return get_actual_name(name)
 
 
 def insert_into_playlist(name,song_name):
@@ -130,8 +133,8 @@ while True:
         name_of_playlist=input("enter the name of the playlist: ")
         create_playlist(name_of_playlist)
         print("playlist created successfully if you want to add songs press 4")
-        a2=input("enter 4 if want to add new songs else anything : ").strip()
-        if a2=="4":
+        a2=input("enter 5 if want to add new songs else anything : ").strip()
+        if a2=="5":
             print("keep entering the name of the songs and if you want to exit press -1")
             while True:
                 a3=input("enter here: ")
@@ -161,4 +164,3 @@ while True:
         print("you entered 2 now enter the name of playlist: ")
         a5=input("enter the name of the playlist: ")
         play_playlist(a5)
-# print(get_actual_name("kangna tera ni"))
